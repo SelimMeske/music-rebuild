@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @Component({
@@ -9,5 +8,5 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 })
 
 export class NavbarComponent {
-
+    
 }

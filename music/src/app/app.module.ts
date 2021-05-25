@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NavbarComponent } from 'src/components/navbar/navbar.component';
+import { HomeComponent } from 'src/components/home/home.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { AppMaterialModule } from './app-material/app-material.module';
   declarations: [
     AppComponent,
     NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
