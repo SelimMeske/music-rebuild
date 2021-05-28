@@ -1,1 +1,5 @@
-<h1>Home</h1>
+<div class="main-song-holder">
+    <div *ngFor="let singleSong of songs; let i=index">
+        <song-card-component [song]='singleSong'></song-card-component>
+    </div>
+</div>

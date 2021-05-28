@@ -1,0 +1,10 @@
+<div class="song-card">
+    <div class="cover-image-holder">
+        <img src="https://www.freeiconspng.com/uploads/youtube-play-logo-png-5.png" alt="">
+    </div>
+    <div [className]="trigger ? 'show-play' : 'hide-play'" id="play-icon-holder" >
+        <mat-icon (mouseover)="onMouseIn()" (mouseout)="onMouseOut()" id="play-button" inline="true">play_circle_outline</mat-icon>
+    </div>
+</div>
+
+<p>{{song.name}}</p>

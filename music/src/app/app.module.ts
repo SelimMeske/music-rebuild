@@ -10,12 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 /**Components */
 import { NavbarComponent } from 'src/components/navbar/navbar.component';
 import { HomeComponent } from 'src/components/home/home.component';
+import { SongCardComponent } from 'src/components/song_card/song.card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    SongCardComponent
   ],
   imports: [
     BrowserModule,

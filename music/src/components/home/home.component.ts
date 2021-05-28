@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SONGCARDS } from '../../app/song.mockup';
 
 
 @Component({
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
 })
 
 export class HomeComponent {
-
+    songs = SONGCARDS;
 }
