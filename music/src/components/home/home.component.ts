@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Subject } from 'rxjs';
 import { SONGCARDS } from '../../app/song.mockup';
+import { Song } from '../../interfaces/song.interface';
+import { BackendService } from '../../services/backend.service';
 
 
 @Component({
@@ -9,5 +12,16 @@ import { SONGCARDS } from '../../app/song.mockup';
 })
 
 export class HomeComponent {
-    songs = SONGCARDS;
+    songs: Song[] = [];
+    getSongObservable: Subject<Song[]> = new Subject;
+
+    constructor(private backendService: BackendService){
+        this.getSongs()
+        
+    }
+
+    getSongs() {
+        this.backendService.getSongs()
+        .subscribe((data: Song[]) => this.songs = data)
+    }
 }

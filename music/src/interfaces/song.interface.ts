@@ -1,8 +1,8 @@
 export interface Song{
-    //id: Number, 
+    id: Number, 
     name: String,
-    //image: String,
-    //audio: String,
-    //audio_data: String,
-    //artist: Number
+    image: String,
+    audio: String,
+    audio_data: String,
+    artist: Number
 }

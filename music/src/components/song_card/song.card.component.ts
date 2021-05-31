@@ -25,4 +25,8 @@ export class SongCardComponent {
     onMouseOut(){
         this.trigger = false;
     }
+
+    play(){
+        console.log('hi')
+    }
 }
