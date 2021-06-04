@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
-import { SONGCARDS } from '../../app/song.mockup';
 import { Song } from '../../interfaces/song.interface';
 import { BackendService } from '../../services/backend.service';
 
