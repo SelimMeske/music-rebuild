@@ -4,6 +4,8 @@
     height: 200px;
     cursor: pointer;
     position: relative;
+    margin-top: 50px;
+    margin-right: 20px;
 }
 
 #play-button {

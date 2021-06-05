@@ -15,9 +15,17 @@ export class PlayerComponent implements OnInit {
     audio_link: String = "";
     audio_data_string: String = "";
     audio_data_list: String[] = [];
+    button_text: String = "Play";
+    host_link: String = "http://127.0.0.1:8000";
 
     constructor(private playerService: PlayerService) {
         this.playerService.songListener().subscribe( song_data => {
+
+            if(this.audio_link == song_data.audio) {
+                this.playPause();
+                return;
+            }
+
             this.audio_link = song_data.audio;
             this.audio_data_string = song_data.audio_data;
             this.play();
@@ -25,7 +33,6 @@ export class PlayerComponent implements OnInit {
     }
 
     ngOnInit(){
-
         this.wavesurfer = WaveSurfer.create({
             container: '.waveform',
             scrollParent: false,
@@ -42,11 +49,21 @@ export class PlayerComponent implements OnInit {
             interact: true,
             backend: 'MediaElement'
         });
-    
+    }
+
+    playPause() {
+        this.wavesurfer.playPause();
+
+        this.wavesurfer.on('pause', () => {
+            this.button_text = "Play";
+        });
+
+        this.wavesurfer.on('play', () => {
+            this.button_text = "Pause";
+        });
     }
 
     play() {
-
         this.wavesurfer.destroy();
 
         this.wavesurfer = WaveSurfer.create({
@@ -70,12 +87,17 @@ export class PlayerComponent implements OnInit {
         this.audio_data_list = this.audio_data_string.replace('[', '').replace(']', '').split(",");
         let intlist = this.audio_data_list.map(x=>+x);
 
-        this.wavesurfer.load('http://127.0.0.1:8000' + this.audio_link, intlist);
+        this.wavesurfer.load(this.host_link + '' + this.audio_link, intlist);
 
-        this.wavesurfer.play();
+        this.wavesurfer.playPause();
+
+        this.wavesurfer.on('pause', () => {
+            this.button_text = "Play";
+        });
+
+        this.wavesurfer.on('play', () => {
+            this.button_text = "Pause";
+        });
     }
-
-    
-    
 
 }
