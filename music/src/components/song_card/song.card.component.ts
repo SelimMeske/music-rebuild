@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Song } from 'src/interfaces/song.interface';
+import { PlayerService } from 'src/services/player.service';
 
 
 @Component({
@@ -14,8 +15,8 @@ export class SongCardComponent {
 
     @Input() song!: Song;
 
-    constructor(){
-
+    constructor(private playerService: PlayerService){
+        
     }
 
     onMouseIn(){
@@ -26,7 +27,7 @@ export class SongCardComponent {
         this.trigger = false;
     }
 
-    play(){
-        console.log('hi')
+    play(song: Song){
+        this.playerService.changeSong(song);
     }
 }

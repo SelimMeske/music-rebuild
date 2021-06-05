@@ -16,7 +16,6 @@ export class HomeComponent {
 
     constructor(private backendService: BackendService){
         this.getSongs()
-        
     }
 
     getSongs() {
